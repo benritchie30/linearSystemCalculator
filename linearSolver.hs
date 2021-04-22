@@ -11,12 +11,6 @@ instance Show Expr where
 printMatrix :: Matrix -> String
 printMatrix m = concatMap (\x -> show x ++ ("\n")) m 
 
-testMatrixFail :: Matrix
-testMatrixFail = parser "3 0 0 4 1 0 3 3 4 1 6 7 4"
-
-testMatrixFail2 :: Matrix
-testMatrixFail2 = parser "3 0 -1 1 2 0 1 -1 1 0 0 3 8"
-
 preproc :: String -> [[Double]]
 preproc inpt = preprocHelper (map read (words inpt))
   where preprocHelper (x:xs) = splitList (round x + 1) xs
